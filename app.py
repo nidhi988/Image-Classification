@@ -1,19 +1,13 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jun 11 22:34:20 2020
-
-@author: Krish Naik
-"""
 
 from __future__ import division, print_function
-# coding=utf-8
+
 import sys
 import os
 import glob
 import re
 import numpy as np
 
-# Keras
+# Importing libraries
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
@@ -43,8 +37,7 @@ def model_predict(img_path, model):
     # x = np.true_divide(x, 255)
     x = np.expand_dims(x, axis=0)
 
-    # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction!
+    
     x = preprocess_input(x)
 
     preds = model.predict(x)
